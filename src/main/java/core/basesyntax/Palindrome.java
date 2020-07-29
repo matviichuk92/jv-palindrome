@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.io.BufferedReader;
-
 public class Palindrome {
 
     /**
@@ -23,15 +21,7 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-
-        String cleanText = text.replace(",", "")
-                .replaceAll("'", "")
-                .replaceAll(" ", "")
-                .replaceAll("!", "")
-                .replaceAll("[)]", "")
-                .replaceAll("-", "")
-                .replaceAll("[.]", "")
-                .toLowerCase();
+        String cleanText = text.toLowerCase().replaceAll("\\W+", "");
         StringBuilder textForCompare = new StringBuilder(cleanText);
         return cleanText.equals(textForCompare.reverse().toString());
     }
